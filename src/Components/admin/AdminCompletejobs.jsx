@@ -15,28 +15,27 @@ export default function AdminCompletejobs() {
 const navigate =useNavigate()
 const token =useSelector(selectAdminAuth)
 
-  React.useEffect(() => {
+React.useEffect(() => {
    
-    if (token.token){
-      return (
+  if (!token.token){
+    navigate('/admin')
+     
+
+  }
+}, [token.token,navigate])
+  
+  return (
           
-        <Box sx={{ display: 'flex'}}>
-            <AdminHome/>
-            <Box component="main" sx={{ flexGrow: 1, p: 6,pl:0 }}>
-          <CompleteJobs/>
-            </Box>
+    <Box sx={{ display: 'flex'}}>
+        <AdminHome/>
+        <Box component="main" sx={{ flexGrow: 1, p: 6,pl:0 }}>
+      <CompleteJobs/>
         </Box>
-        
-  
-  
-  )
-    }else{
-      navigate('/admin')
-    }
-   
-  }, [])
-  
-  
+    </Box>
+    
+
+
+)
    
 }
 

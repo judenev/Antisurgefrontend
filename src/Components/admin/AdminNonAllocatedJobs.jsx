@@ -17,10 +17,15 @@ import { selectAdminAuth } from '../../redux/features/adminAuthSlice'
 export default function AdminNonAllocatedJobs() {
   const navigate = useNavigate()
   const token = useSelector(selectAdminAuth)
-  React.useEffect(() => {
+    React.useEffect(() => {
+   
+    if (!token.token){
+      navigate('/admin')
+       
 
-    if (token.token) {
-      return (
+    }
+  }, [token.token,navigate])
+  return (
 
         <Box sx={{ display: 'flex' }}>
           <AdminHome />
@@ -32,11 +37,6 @@ export default function AdminNonAllocatedJobs() {
 
 
       )
-    } else {
-      navigate('/admin')
-    }
-
-  }, [])
 
 }
 

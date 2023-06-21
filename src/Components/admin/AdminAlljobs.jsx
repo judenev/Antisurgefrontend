@@ -14,26 +14,26 @@ import { useNavigate } from 'react-router-dom'
 export default function AdminAlljobs() {
     const navigate =useNavigate()
     const token =useSelector(selectAdminAuth)
-   React.useEffect(() => {
-        if (token.token){
-            return (
+    React.useEffect(() => {
+   
+      if (!token.token){
+        navigate('/admin')
+         
+  
+      }
+    }, [token.token,navigate])
+    return (
         
-                <Box sx={{ display: 'flex'}}>
-                    <AdminHome/>
-                    <Box component="main" sx={{ flexGrow: 1, p: 6,pl:0 }}>
-                    <EmployeeAlljobs />
-                    </Box>
-                </Box>
-                
-        
-        
-        )
-          }else{
-            navigate('/admin')
-          }
-    
+      <Box sx={{ display: 'flex'}}>
+          <AdminHome/>
+          <Box component="main" sx={{ flexGrow: 1, p: 6,pl:0 }}>
+          <EmployeeAlljobs />
+          </Box>
+      </Box>
       
-    }, [])
+
+
+)
     
   
 }
