@@ -35,7 +35,7 @@ export default function Adminongoingjobs() {
   const navigate = useNavigate()
   const employedata = useSelector(selectEmpAuth)
   async function render() {
-    axios.get(`${BaseURL}ongoingjobs/0`,{
+    axios.get(`${BaseURL}/ongoingjobs/0`,{
       headers: {
           Authorization: `Bearer ${employedata.token.token}`
       }
