@@ -5,6 +5,7 @@ import EmpOngoingJobs from './mainpage/EmpOngoingJobs'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { selectAdminAuth } from '../../redux/features/adminAuthSlice'
+import Adminongoingjobs from './mainpage/Adminongoingjobs'
 
 export default function AdminOngoingJobs() {
 const navigate =useNavigate()
@@ -18,7 +19,7 @@ const token =useSelector(selectAdminAuth)
             <Box sx={{ display: 'flex'}}>
                 <AdminHome/>
                 <Box component="main" sx={{ flexGrow: 1, p: 6,pl:0 }}>
-                <EmpOngoingJobs />
+              <Adminongoingjobs/>
                 </Box>
             </Box>
             
