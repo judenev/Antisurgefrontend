@@ -6,25 +6,25 @@ export default function Otp (props) {
    const [numb,setNumb]=useState('')
    const [otp, setOtp] = useState('')
 useEffect(()=>{
-  verify()
+  // verify()
 },[])
 
 
-    function verify(){
-      setNumb(props.numb)
-      if(!window.recaptchaVerifier){
-        window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
-            'size': 'normal',
-            'callback': (response) => {
-              console.log(response)
-             // onsignUp()
-            },
-            'expired-callback': () => {
+    // function verify(){
+    //   setNumb(props.numb)
+    //   if(!window.recaptchaVerifier){
+    //     window.recaptchaVerifier = new RecaptchaVerifier('recaptcha-container', {
+    //         'size': 'normal',
+    //         'callback': (response) => {
+    //           console.log(response)
+    //          // onsignUp()
+    //         },
+    //         'expired-callback': () => {
           
-            }
-          }, auth);
-      }  
-    }
+    //         }
+    //       }, auth);
+    //   }  
+    // }
   
 
   const handleChange = (newValue) => {
