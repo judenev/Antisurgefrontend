@@ -29,7 +29,7 @@ useEffect(()=>{
 
   const handleChange = (newValue) => {
     console.log("kay kooi",numb);
-   const phoneNumber = '+919048454995'
+   const phoneNumber = '+917902915586'
     setOtp(newValue)
     const appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, phoneNumber, appVerifier)
