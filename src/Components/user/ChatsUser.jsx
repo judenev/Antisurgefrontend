@@ -36,7 +36,7 @@ const ChatsUser = (props) => {
 			height='100vh'
 			userName={`${token.token.data.firstName}`}
 			userSecret={`${token.token.data.firstName}`}
-			projectID='733476cf-5f4a-49d6-bd0c-d2b34f80ecb8'
+			projectID='aa9f48c4-f721-45da-904d-95a34af2b3cb'
 			renderNewChatForm={(creds) => renderChatForm(creds)}
 		/>
 	)

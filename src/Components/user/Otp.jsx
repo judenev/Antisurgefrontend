@@ -50,7 +50,7 @@ console.log(otp);
 
   return (
     <>
-    <div id="recaptcha-container"></div>
+
     <MuiOtpInput value={otp} onChange={handleChange} />
     </>
     

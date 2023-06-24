@@ -2,7 +2,7 @@ import React from 'react'
 import io from "socket.io-client";
 import { InputNumber } from 'primereact/inputnumber';
 import { Button } from 'primereact/button';
-const socket = io.connect("http://localhost:3001");
+
 
 
 function Chats() {
