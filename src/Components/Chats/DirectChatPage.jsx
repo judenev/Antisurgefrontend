@@ -34,7 +34,7 @@ const DirectChatPage = () => {
 			height='100vh'
 			userName='AntisurgeCustomerSupport'
 			userSecret='AntisurgeCustomerSupport'
-			projectID='aa9f48c4-f721-45da-904d-95a34af2b3cb'
+			projectID='a0f086e6-7204-483f-991d-543460b1b292'
 			renderNewChatForm={(creds) => renderChatForm(creds)}
 		/>
 	)
