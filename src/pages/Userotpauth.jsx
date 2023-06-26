@@ -124,7 +124,7 @@ export default function Userotpauth() {
    console.log(resp)
    await  axios.get(`${USERBaseURL}userverify/${resp.user.phoneNumber}`).then((resp)=>{
     console.log("response",resp);
-  if (resp.user){
+  if (resp.data.user){
     navigate('/ongoingjob')
   }else{
    showError()
