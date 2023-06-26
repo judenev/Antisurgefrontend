@@ -16,17 +16,17 @@ import img from '../pages/adminLogin/misc/SURGE1.jpg'
 import { useNavigate } from 'react-router-dom';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from "yup";
+import React, { useRef } from 'react';
 
 
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { setUserToken } from '../redux/features/userAuthSlice';
-
-
+import { useNavigate } from 'react-router-dom';
+import { Toast } from 'primereact/toast';
 import { MuiOtpInput } from 'mui-one-time-password-input'
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { auth } from '../Firebase/firebase.config';
+import axios from 'axios';
+import USERBaseURL from '../Utils/userUrl';
 
 const theme = createTheme();
 const userlogin = yup.object().shape({
@@ -34,8 +34,8 @@ const userlogin = yup.object().shape({
 
 })
 export default function Userotpauth() {
- 
- const dispatch = useDispatch()
+  const toast = useRef(null);
+
   const [logged, setLogged] = React.useState(true)
   const [otp, setOtp] = React.useState(false)
   const [otp2, setOtp2] = React.useState('')
@@ -61,7 +61,9 @@ export default function Userotpauth() {
 
   }
 
-
+  const showError = () => {
+    toast.current.show({severity:'error', summary: 'User Not found', detail:'Please register with a valid phone number', life: 5000});
+}
 
 
   function verify() {
@@ -119,7 +121,15 @@ export default function Userotpauth() {
   }, []);
   function OtpVerify() {
     window.confirmationResult.confirm(otp2).then(async (resp) => {
- 
+   console.log(resp)
+   axios.get(`${USERBaseURL}userverify/${resp.user.phoneNumber}`).then((resp)=>{
+  if (resp.user){
+    navigate('/ongoingjob')
+  }else{
+   showError()
+   navigate('/register')
+  }
+   })
     }).catch((err) => {
       console.log(err);
     })
