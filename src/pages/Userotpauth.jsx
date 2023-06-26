@@ -122,7 +122,8 @@ export default function Userotpauth() {
   function OtpVerify() {
     window.confirmationResult.confirm(otp2).then(async (resp) => {
    console.log(resp)
-   axios.get(`${USERBaseURL}userverify/${resp.user.phoneNumber}`).then((resp)=>{
+   await  axios.get(`${USERBaseURL}userverify/${resp.user.phoneNumber}`).then((resp)=>{
+    console.log("response",resp);
   if (resp.user){
     navigate('/ongoingjob')
   }else{
